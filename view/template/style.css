@@ -1,0 +1,282 @@
+/* ----------------------------------------------------
+   Gaya Umum (Untuk Desktop dan Mobile)
+---------------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Perbaikan: Mengganti "#green" yang tidak valid ke warna yang lebih umum atau valid */
+    background-color: #f4f4f4; 
+}
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    /* Perbaikan: Mengganti "green" yang tidak valid menjadi warna yang valid */
+    border-bottom: 1px solid #ccc; 
+    margin-bottom: 20px;
+}
+.header-menu a {
+    text-decoration: none;
+    color: #333;
+    margin-right: 15px;
+    font-weight: bold;
+    /* Tambahkan efek transisi */
+    transition: color 0.3s; 
+}
+.header-menu a:hover {
+    color: #007bff; /* Efek hover */
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+.search-bar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Tambahkan lebar maksimal untuk kontrol di mobile */
+    max-width: 180px; 
+}
+.search-bar button {
+    padding: 8px 12px;
+    margin-left: 5px;
+    background-color: #38b2ac;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.search-bar button:hover {
+    background-color: #2c8e89;
+}
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Tambahkan margin agar kartu tidak menempel */
+}
+.card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.form-group .radio-group {
+    display: flex;
+    gap: 20px;
+}
+.form-group .radio-group input {
+    margin-right: 5px;
+}
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* ----------------------------------------------------
+   Gaya Tabel (Responsif Dasar)
+---------------------------------------------------- */
+.table-container {
+    overflow-x: auto; /* Memungkinkan scroll horizontal jika tabel terlalu lebar */
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 600px; /* Tambahkan lebar minimum untuk tampilan desktop */
+}
+thead {
+    background-color: #f2f2f2;
+}
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    font-weight: bold;
+}
+tbody tr:hover {
+    background-color: #f5f5f5;
+}
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    /* Rata tengah tombol aksi */
+    justify-content: center; 
+}
+.action-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.action-buttons button:hover {
+    opacity: 0.8;
+}
+.action-buttons .btn-update {
+    background-color: #ffc107;
+}
+.action-buttons .btn-delete {
+    background-color: #dc3545;
+}
+
+/* ====================================================
+   MEDIA QUERIES UNTUK RESPONSIVITAS
+   ==================================================== */
+
+/* 1. LAYAR TABLET (MAX 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Sedikit lebih lebar */
+        padding: 15px;
+    }
+    
+    /* Header: Memungkinkan header menumpuk sedikit di bawah, jika terlalu sempit */
+    .header {
+        flex-direction: column; /* Tumpuk item header */
+        align-items: flex-start;
+        padding-bottom: 15px;
+    }
+    
+    .header-menu {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        width: 100%; /* Search bar mengambil lebar penuh */
+        order: 3; /* Pindahkan search bar ke bawah */
+    }
+    .search-bar input {
+        width: 100%;
+        max-width: none;
+    }
+    .search-bar button {
+        /* Sedikit mengecilkan padding button */
+        padding: 8px 10px; 
+    }
+    
+    /* Tabel: Mengurangi padding */
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* 2. LAYAR MOBILE (MAX 576px) */
+@media (max-width: 576px) {
+    
+    /* Header: Menu menjadi blok penuh */
+    .header-menu a {
+        display: block; /* Setiap link menu mengambil baris baru */
+        margin-right: 0;
+        margin-bottom: 5px; /* Beri jarak antar link */
+        padding: 5px 0;
+        border-bottom: 1px dashed #eee;
+    }
+
+    /* Card/Form: Mengurangi padding */
+    .card {
+        padding: 15px;
+    }
+
+    /* Form Radio: Menumpuk vertikal */
+    .form-group .radio-group {
+        flex-direction: column; 
+        gap: 5px;
+    }
+
+    /* Tabel: Mengaktifkan mode Stackable Card */
+    table {
+        min-width: 0; /* Hapus lebar minimum untuk mengaktifkan mode kartu */
+    }
+    
+    thead {
+        display: none; /* Sembunyikan header */
+    }
+    
+    tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    td {
+        display: block;
+        text-align: right !important;
+        padding-left: 50%; /* Ruang untuk label */
+        border: none;
+        border-bottom: 1px dashed #eee;
+        position: relative;
+    }
+    
+    /* Tambahkan label kolom menggunakan data-attribute (Perlu ditambahkan ke HTML) */
+    /* Contoh: <td data-label="Nama Kolom">Data</td> */
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Kolom terakhir (Aksi) tidak perlu label */
+    td:last-child {
+        text-align: center !important;
+        border-bottom: none;
+        padding-left: 12px;
+    }
+    td:last-child::before {
+        content: none;
+    }
+    
+    /* Tombol Aksi */
+    .action-buttons {
+        justify-content: space-around; /* Sebar tombol di tengah */
+        padding: 5px 0;
+    }
+    .action-buttons button {
+         width: 45%; /* Beri lebar agar mudah ditekan */
+    }
+}
